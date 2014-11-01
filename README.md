@@ -7,13 +7,16 @@ managing access rules (integrated with the university's electronic info system),
 and the embedded devices hardware and software.
 
 This repository contains several separate subprojects in branches:
-- `server/master`: the server (DB, "manager")
-- `controller-sw/master`: the controller's software (decide whether to open this
-  door)
-- `controller-hw/master`: the controller's hardware design
-- `reader-sw/master`: the reader's software (read ISIC, tell it to the
+- [`server/master`](https://github.com/fmfi-svt/gate/tree/server/master): the server (DB, "manager")
+- [`controller-sw/master`](https://github.com/fmfi-svt/gate/tree/controller-sw/master): the
+  controller's software (decide whether to open this door)
+- [`controller-hw/master`](https://github.com/fmfi-svt/gate/tree/controller-hw/master): the
+  controller's hardware design
+- [`reader-sw/master`](https://github.com/fmfi-svt/gate/tree/reader-sw/master): the reader's
+  software (read ISIC, tell it to the
   controller)
-- `reader-hw/master`: the reader's hardware design
+- [`reader-hw/master`](https://github.com/fmfi-svt/gate/tree/reader-hw/master): the reader's
+  hardware design
 
 See the [Overview](https://github.com/fmfi-svt/gate/wiki/Overview) wiki page for
 more details about what is what.
