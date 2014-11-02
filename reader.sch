@@ -2399,94 +2399,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
-<library name="buzzer">
-<description>&lt;b&gt;Speakers and Buzzers&lt;/b&gt;&lt;p&gt;
-&lt;ul&gt;Distributors:
-&lt;li&gt;Buerklin
-&lt;li&gt;Spoerle
-&lt;li&gt;Schukat
-&lt;/ul&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="AL30P">
-<description>&lt;b&gt;SPEAKER&lt;/b&gt;</description>
-<wire x1="-6.2865" y1="-0.9311" x2="-6.2865" y2="0.9311" width="0.1524" layer="21" curve="284.682646"/>
-<wire x1="-8.5725" y1="1.0758" x2="-8.5725" y2="-1.0758" width="0.1524" layer="21" curve="270.196719"/>
-<wire x1="-8.5725" y1="-1.0758" x2="-8.5725" y2="1.0758" width="0.1524" layer="51" curve="89.803281"/>
-<wire x1="-6.2865" y1="0.9311" x2="-6.2865" y2="-0.9311" width="0.1524" layer="51" curve="75.317354"/>
-<wire x1="6.2865" y1="0.9311" x2="6.2865" y2="-0.9311" width="0.1524" layer="21" curve="284.682646"/>
-<wire x1="8.5725" y1="-1.0758" x2="8.5725" y2="1.0758" width="0.1524" layer="21" curve="270.196719"/>
-<wire x1="6.2865" y1="-0.9311" x2="6.2865" y2="0.9311" width="0.1524" layer="51" curve="75.317354"/>
-<wire x1="8.5725" y1="1.0758" x2="8.5725" y2="-1.0758" width="0.1524" layer="51" curve="89.803281"/>
-<circle x="0" y="0" radius="14.986" width="0.1524" layer="21"/>
-<circle x="0" y="0" radius="12.7" width="0.1524" layer="21"/>
-<circle x="0" y="0" radius="1.524" width="0.1524" layer="21"/>
-<circle x="0" y="5.08" radius="1.524" width="0.1524" layer="21"/>
-<circle x="0" y="-5.08" radius="1.524" width="0.1524" layer="21"/>
-<circle x="0" y="9.652" radius="1.524" width="0.1524" layer="21"/>
-<circle x="0" y="-9.652" radius="1.524" width="0.1524" layer="21"/>
-<circle x="-8.3589" y="-4.826" radius="1.524" width="0.1524" layer="21"/>
-<circle x="-4.826" y="-8.3589" radius="1.524" width="0.1524" layer="21"/>
-<circle x="-3.5921" y="-3.5921" radius="1.524" width="0.1524" layer="21"/>
-<circle x="-8.3589" y="4.826" radius="1.524" width="0.1524" layer="21"/>
-<circle x="-4.826" y="8.3589" radius="1.524" width="0.1524" layer="21"/>
-<circle x="-3.5921" y="3.5921" radius="1.524" width="0.1524" layer="21"/>
-<circle x="8.3589" y="-4.826" radius="1.524" width="0.1524" layer="21"/>
-<circle x="4.826" y="-8.3589" radius="1.524" width="0.1524" layer="21"/>
-<circle x="3.5921" y="-3.5921" radius="1.524" width="0.1524" layer="21"/>
-<circle x="4.826" y="8.3589" radius="1.524" width="0.1524" layer="21"/>
-<circle x="3.5921" y="3.5921" radius="1.524" width="0.1524" layer="21"/>
-<circle x="8.3589" y="4.826" radius="1.524" width="0.1524" layer="21"/>
-<pad name="1" x="-7.493" y="0" drill="1.1938" diameter="2.54" shape="octagon"/>
-<pad name="2" x="7.493" y="0" drill="1.1938" diameter="2.54" shape="octagon"/>
-<text x="7.747" y="13.97" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="11.43" y="-12.065" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-</package>
-</packages>
-<symbols>
-<symbol name="SP">
-<wire x1="-1.905" y1="-0.635" x2="1.905" y2="-0.635" width="0.254" layer="94"/>
-<wire x1="1.905" y1="-0.635" x2="1.905" y2="0" width="0.254" layer="94"/>
-<wire x1="1.905" y1="2.54" x2="-1.905" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-1.905" y1="-0.635" x2="-1.905" y2="0" width="0.254" layer="94"/>
-<wire x1="1.905" y1="2.54" x2="5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="5.08" y1="5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-1.905" y1="2.54" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="2.54" y1="0" x2="1.905" y2="0" width="0.1524" layer="94"/>
-<wire x1="1.905" y1="0" x2="1.905" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="0" x2="-1.905" y2="0" width="0.1524" layer="94"/>
-<wire x1="-1.905" y1="0" x2="-1.905" y2="2.54" width="0.254" layer="94"/>
-<text x="-3.81" y="6.35" size="1.778" layer="95">&gt;NAME</text>
-<text x="-3.81" y="-3.175" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="2" x="5.08" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
-<pin name="1" x="-5.08" y="0" visible="pad" length="short" direction="pas"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="AL30P" prefix="SP">
-<description>&lt;b&gt;SPEAKER&lt;/b&gt;&lt;p&gt; Source: Buerklin</description>
-<gates>
-<gate name="G$1" symbol="SP" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="AL30P">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="" constant="no"/>
-<attribute name="OC_FARNELL" value="unknown" constant="no"/>
-<attribute name="OC_NEWARK" value="unknown" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-Connectors">
 <description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
 In this library you'll find connectors and sockets- basically anything that can be plugged into or onto.&lt;br&gt;&lt;br&gt;
@@ -3640,6 +3552,89 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="buzzer">
+<description>&lt;b&gt;Speakers and Buzzers&lt;/b&gt;&lt;p&gt;
+&lt;ul&gt;Distributors:
+&lt;li&gt;Buerklin
+&lt;li&gt;Spoerle
+&lt;li&gt;Schukat
+&lt;/ul&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="AL23P">
+<description>&lt;b&gt;SPEAKER&lt;/b&gt;</description>
+<wire x1="-6.1214" y1="1.0361" x2="-6.1214" y2="-1.0361" width="0.1524" layer="21" curve="274.334289"/>
+<wire x1="-3.9624" y1="-1.1127" x2="-3.9624" y2="1.1127" width="0.1524" layer="21" curve="266.208441"/>
+<wire x1="-3.9624" y1="1.1127" x2="-3.9624" y2="-1.1127" width="0.1524" layer="51" curve="93.791559"/>
+<wire x1="-6.1214" y1="-1.0361" x2="-6.1214" y2="1.0361" width="0.1524" layer="51" curve="85.665711"/>
+<wire x1="3.9624" y1="1.1127" x2="3.9624" y2="-1.1127" width="0.1524" layer="21" curve="266.208441"/>
+<wire x1="6.1214" y1="-1.0361" x2="6.1214" y2="1.0361" width="0.1524" layer="21" curve="274.334289"/>
+<wire x1="3.9624" y1="-1.1127" x2="3.9624" y2="1.1127" width="0.1524" layer="51" curve="93.791559"/>
+<wire x1="6.1214" y1="1.0361" x2="6.1214" y2="-1.0361" width="0.1524" layer="51" curve="85.665711"/>
+<circle x="0" y="0" radius="10.033" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="11.557" width="0.1524" layer="21"/>
+<circle x="0" y="2.921" radius="1.524" width="0.1524" layer="21"/>
+<circle x="0" y="-2.921" radius="1.524" width="0.1524" layer="21"/>
+<circle x="0" y="-7.239" radius="1.524" width="0.1524" layer="21"/>
+<circle x="0" y="7.239" radius="1.524" width="0.1524" layer="21"/>
+<circle x="-3.6195" y="-6.2692" radius="1.524" width="0.1524" layer="21"/>
+<circle x="-6.2692" y="-3.6195" radius="1.524" width="0.1524" layer="21"/>
+<circle x="-3.6195" y="6.2692" radius="1.524" width="0.1524" layer="21"/>
+<circle x="-6.2692" y="3.6195" radius="1.524" width="0.1524" layer="21"/>
+<circle x="3.6195" y="-6.2692" radius="1.524" width="0.1524" layer="21"/>
+<circle x="6.2692" y="-3.6195" radius="1.524" width="0.1524" layer="21"/>
+<circle x="6.2692" y="3.6195" radius="1.524" width="0.1524" layer="21"/>
+<circle x="3.6195" y="6.2692" radius="1.524" width="0.1524" layer="21"/>
+<pad name="1" x="-5.0038" y="0" drill="1.1176" diameter="2.54" shape="octagon"/>
+<pad name="2" x="5.0038" y="0" drill="1.1176" diameter="2.54" shape="octagon"/>
+<text x="6.985" y="10.16" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="7.62" y="-10.795" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="SP">
+<wire x1="-1.905" y1="-0.635" x2="1.905" y2="-0.635" width="0.254" layer="94"/>
+<wire x1="1.905" y1="-0.635" x2="1.905" y2="0" width="0.254" layer="94"/>
+<wire x1="1.905" y1="2.54" x2="-1.905" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-1.905" y1="-0.635" x2="-1.905" y2="0" width="0.254" layer="94"/>
+<wire x1="1.905" y1="2.54" x2="5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-1.905" y1="2.54" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="1.905" y2="0" width="0.1524" layer="94"/>
+<wire x1="1.905" y1="0" x2="1.905" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-1.905" y2="0" width="0.1524" layer="94"/>
+<wire x1="-1.905" y1="0" x2="-1.905" y2="2.54" width="0.254" layer="94"/>
+<text x="-3.81" y="6.35" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-3.175" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="pad" length="short" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="AL23P" prefix="SP">
+<description>&lt;b&gt;SPEAKER&lt;/b&gt;&lt;p&gt; Source: Buerklin</description>
+<gates>
+<gate name="G$1" symbol="SP" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="AL23P">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="unknown" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -3662,7 +3657,6 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="360R"/>
 <part name="LED1" library="led" deviceset="LED" device="3MM" value="BLUE"/>
 <part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="680R"/>
-<part name="SP1" library="buzzer" deviceset="AL30P" device=""/>
 <part name="LD1" library="led" deviceset="DUOLED-RY-C" device="" value="STATUS"/>
 <part name="J1" library="SparkFun-Connectors" deviceset="RJ11-6" device="PTH"/>
 <part name="SUPPLY3" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
@@ -3677,6 +3671,7 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="J2" library="SparkFun-Connectors" deviceset="AVR_SPI_PRG_6" device="NS"/>
 <part name="SUPPLY5" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="GND8" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="SP1" library="buzzer" deviceset="AL23P" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3698,7 +3693,6 @@ select</text>
 <instance part="R2" gate="G$1" x="45.72" y="81.28" rot="R180"/>
 <instance part="LED1" gate="G$1" x="58.42" y="55.88" rot="R90"/>
 <instance part="R3" gate="G$1" x="45.72" y="55.88"/>
-<instance part="SP1" gate="G$1" x="60.96" y="43.18" rot="R270"/>
 <instance part="LD1" gate="G$1" x="60.96" y="73.66" rot="R180"/>
 <instance part="J1" gate="G$1" x="-76.2" y="73.66" rot="MR180"/>
 <instance part="SUPPLY3" gate="G$1" x="-55.88" y="78.74"/>
@@ -3713,6 +3707,7 @@ select</text>
 <instance part="J2" gate="G$1" x="-78.74" y="-48.26"/>
 <instance part="SUPPLY5" gate="G$1" x="-53.34" y="-35.56"/>
 <instance part="GND8" gate="1" x="-53.34" y="-63.5"/>
+<instance part="SP1" gate="G$1" x="60.96" y="43.18" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -3776,7 +3771,6 @@ select</text>
 <wire x1="-53.34" y1="-50.8" x2="-53.34" y2="-60.96" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="SP1" gate="G$1" pin="2"/>
 <wire x1="60.96" y1="35.56" x2="60.96" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="GND3" gate="1" pin="GND"/>
 <wire x1="60.96" y1="35.56" x2="78.74" y2="35.56" width="0.1524" layer="91"/>
@@ -3789,6 +3783,7 @@ select</text>
 <junction x="78.74" y="55.88"/>
 <pinref part="LD1" gate="G$1" pin="C"/>
 <wire x1="78.74" y1="73.66" x2="63.5" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="SP1" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="GND"/>
@@ -4005,9 +4000,9 @@ select</text>
 <pinref part="JP3" gate="A" pin="2"/>
 <wire x1="5.08" y1="48.26" x2="10.16" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="10.16" y1="48.26" x2="10.16" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="SP1" gate="G$1" pin="1"/>
 <wire x1="60.96" y1="48.26" x2="10.16" y2="48.26" width="0.1524" layer="91"/>
 <junction x="10.16" y="48.26"/>
+<pinref part="SP1" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
