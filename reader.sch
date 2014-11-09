@@ -3558,7 +3558,7 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class number="0" name="default" width="0.8" drill="0">
 </class>
 </classes>
 <parts>
@@ -3923,8 +3923,7 @@ select</text>
 </sheets>
 <errors>
 <approved hash="113,1,5.611,8.151,FRAME1,,,,,"/>
-<approved hash="113,1,2.92947,56.3626,JP2,,,,,"/>
-<approved hash="113,1,2.92947,48.7426,JP3,,,,,"/>
+<approved hash="113,1,1.65947,54.6976,JP2,,,,,"/>
 </errors>
 </schematic>
 </drawing>
