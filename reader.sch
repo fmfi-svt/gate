@@ -3558,7 +3558,7 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0.8" drill="0">
+<class number="0" name="default" width="0.6096" drill="0">
 </class>
 </classes>
 <parts>
