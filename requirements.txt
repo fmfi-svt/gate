@@ -1,0 +1,1 @@
+https://github.com/warner/python-tweetnacl/tarball/master

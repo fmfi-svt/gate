@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Gate server runner -- https://github.com/fmfi-svt/gate/wiki/Architecture#server
 """
