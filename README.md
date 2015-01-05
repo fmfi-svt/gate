@@ -18,7 +18,7 @@ This repository contains several separate subprojects in branches:
 - [`reader-hw/master`](https://github.com/fmfi-svt/gate/tree/reader-hw/master): the reader's
   hardware design
 
-See the [Overview](https://github.com/fmfi-svt/gate/wiki/Overview) wiki page for
+See the [Architecture](https://github.com/fmfi-svt/gate/wiki/Architecture) wiki page for
 more details about what is what.
 
 The recommended way to work with this repo structure is to checkout a separate
