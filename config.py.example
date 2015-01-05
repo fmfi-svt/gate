@@ -1,0 +1,11 @@
+HOST = ''
+PORT = 5047
+
+# Passed to psycopg2.connect() as keyword arguments.
+DB = {
+    #'host'   : 'localhost',
+    #'port'   : 5432,
+    'database': 'test',
+    'user'    : 'user',
+    'password': 'secret'
+}
