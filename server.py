@@ -14,7 +14,7 @@ class MessageHandler(socketserver.BaseRequestHandler):
     @classmethod
     def set_db(cls, db_conf):
         """Connects to the database. All instances will share the connection."""
-        cls._db_conn   = psycopg2.connect(**db_conf)
+        cls._db_conn   = psycopg2.connect(db_conf)
 
     def handle(self):
         data, socket = self.request

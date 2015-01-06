@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 """Management utility for the Gate server."""
 
-import config
 import run
 
 import nacl.raw as nacl
 import psycopg2
-import binascii, sys
+import os, sys
 
 def controller(args):
     """Manage controllers.
@@ -35,7 +34,20 @@ actions = {
     'run'       : lambda _: run.main()
 }
 
+def load_dotenv():
+    """
+    Read the .env file if exists, and load it into os.environ.
+    """
+    if os.path.exists('.env'):
+        for line in open('.env', 'r'):
+            line = line.strip()
+            if line == '' or line.startswith('#') or '=' not in line: continue
+            k, v = line.split('=')
+            v = v.strip("'").strip('"')
+            os.environ.setdefault(k, v)
+
 if __name__ == '__main__':
+    load_dotenv()
     try:
         actions[sys.argv[1]](sys.argv[2:])
     except (IndexError, KeyError):
