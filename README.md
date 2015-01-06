@@ -15,6 +15,6 @@ Setup
    - csh, tcsh: `source bin/activate.csh`
 3. install dependencies if necessary: `pip install -r requirements.txt`
 4. configure: `cp config.py{.example,}; $EDITOR config.py`
-5. add controller entries to the DB: `.manage.py controller MAC IP`
+5. add controller entries to the DB: `./manage.py controller MAC IP`
 
 Run with `./run.py` or `./manage.py run`.
