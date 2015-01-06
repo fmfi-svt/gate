@@ -1,7 +1,6 @@
 import socketserver
 import psycopg2
 
-
 class MessageHandler(socketserver.BaseRequestHandler):
     """Handles a message from the controller.
     

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Management utility for the Gate server."""
 
-import run
+from main import main as server_main
 
 import nacl.raw as nacl
 import psycopg2
@@ -31,7 +31,7 @@ def controller(args):
 
 actions = {
     'controller': controller,
-    'run'       : lambda _: run.main()
+    'run'       : lambda _: sys.exit(server_main())
 }
 
 def load_dotenv():
