@@ -2,6 +2,8 @@ HOST = ''
 PORT = 5047
 
 # Passed to psycopg2.connect() as keyword arguments.
+# TODO the actual server needs only reads + writing logs => make an optional
+# DB_RDONLY setting?
 DB = {
     #'host'   : 'localhost',
     #'port'   : 5432,

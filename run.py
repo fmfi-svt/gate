@@ -12,6 +12,7 @@ from socketserver import ThreadingMixIn, UDPServer
 class ThreadingUDPServer(ThreadingMixIn, UDPServer): pass
 
 def main():
+    server.MessageHandler.set_db(config.DB)
     srv = ThreadingUDPServer((config.HOST, config.PORT), server.MessageHandler)
     try:
         srv.serve_forever()
