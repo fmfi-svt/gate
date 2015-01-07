@@ -7,32 +7,90 @@ import nacl.raw as nacl
 import psycopg2
 import os, sys
 
-def controller(args):
-    """Manage controllers.
+def check_args(given, exp):
+    if len(given) != len(exp):
+        usage(actions, 'takes {} arguments: {}'.format(len(exp), ' '.join(exp)))
 
-    If args[1] is 'delete', deletes the given controller from the DB.
-    Otherwise adds the controller to the DB, generating a new random key.
-    """
+def walk_actions(here, argv):
+    _, action = here
+    if len(argv) < 1 or not isinstance(action, dict): return here, argv
+    head, *tail = argv
+    if not head in action: raise ValueError('no such action: {}'.format(head))
+    sub = action[head]
+    if isinstance(sub[1], dict): # we must go deeper!
+        return walk_actions(sub, tail)
+    else: # we have a function
+        return sub, tail
+
+def dispatch_action(actions, argv):
     try:
-        mac, ip = args
+        (_, action), args = walk_actions(actions, argv)
+        if isinstance(action, dict): usage(actions, 'not enough arguments')
+        else: return action(args)
+    except ValueError as e:
+        usage(actions, e)
+
+def help(action, prepend):
+    doc, this = action
+    if isinstance(this, dict): # we must go deeper!
+        res = [prepend+':\n\t'+doc]
+        for cmd, subs in this.items():
+            res += help(subs, prepend+' '+cmd)
+        return res
+    else:
+        return [prepend+':\n\t'+doc]
+
+def usage(actions, err=None):
+    if err: sys.stderr.write('Error: {}\n'.format(err))
+    print('Usage:')
+    try:
+        sub, remains = walk_actions(actions, sys.argv[1:])
+        valid = len(sys.argv) - len(remains)
     except ValueError:
-        mac, ip = input('MAC addr (ID): '), input('IP addr: ')
+        sub = actions
+        valid = 0
+    print('\n'.join(help(sub, ' '.join(sys.argv[:valid]))))
+    sys.exit(64)
+
+################################################################################
+
+def exec_sql(query, args=(), read=False):
     with psycopg2.connect(os.environ.get('DB_URL')) as conn:
         cur = conn.cursor()
-        if ip == 'delete':
-            cur.execute("DELETE FROM controllers WHERE id = %s", (mac,))
-        else:
-            key = nacl.randombytes(nacl.crypto_secretbox_KEYBYTES)
-            cur.execute("CREATE TABLE IF NOT EXISTS controllers"
-                        "(id macaddr PRIMARY KEY, ip inet UNIQUE, key bytea);")
-            cur.execute("INSERT INTO controllers (id , ip, key)"
-                        "VALUES (%s, %s, %s);",  (mac, ip, key))
-        cur.close()
+        cur.execute(query, args)
+        if read: return cur.fetchall()
 
-actions = {
-    'controller': controller,
-    'serve': lambda _: serve()
-}
+def ctrl_add(args):
+    check_args(args, ['MAC', 'IP'])
+    mac, ip = args
+    key = nacl.randombytes(nacl.crypto_secretbox_KEYBYTES)
+    exec_sql("CREATE TABLE IF NOT EXISTS controllers"
+             "(mac macaddr PRIMARY KEY, ip inet UNIQUE, key bytea)")
+    exec_sql("INSERT INTO controllers (mac, ip, key)"
+             "VALUES (%s, %s, %s)",  (mac, ip, key))
+
+def ctrl_delete(args):
+    check_args(args, ['MAC'])
+    mac = args[0]
+    exec_sql("DELETE FROM controllers WHERE mac = %s", (mac,))
+
+def ctrl_list(args):
+    check_args(args, [])
+    for mac, ip in exec_sql("SELECT mac, ip FROM controllers", read=True):
+        print('{}\t{}'.format(mac, ip))
+
+################################################################################
+
+actions = ('management utility for the Gate server', {
+    'serve'     : ('launch the server', lambda _: serve()),
+    'controller': ('manage the controllers database.', {
+        'add'   : ('add a new controller, generating a random key', ctrl_add),
+        'delete': ('delete the given controller', ctrl_delete),
+        'list'  : ('list all controllers', ctrl_list),
+        }),
+})
+
+################################################################################
 
 def load_dotenv():
     """
@@ -48,9 +106,4 @@ def load_dotenv():
 
 if __name__ == '__main__':
     load_dotenv()
-    try:
-        action = actions[sys.argv[1]]
-    except (IndexError, KeyError):
-        actions_str = '|'.join(sorted(actions.keys()))
-        print('Usage: {} {} [extra arguments]'.format(sys.argv[0], actions_str))
-    sys.exit(action(sys.argv[2:]))
+    sys.exit(dispatch_action(actions, sys.argv[1:]))
