@@ -3,7 +3,7 @@ import psycopg2
 
 class MessageHandler(socketserver.BaseRequestHandler):
     """Handles a message from the controller.
-    
+
     Behaves according to
     https://github.com/fmfi-svt/gate/wiki/Controller-%E2%86%94-Server-Protocol .
     """

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Management utility for the Gate server."""
 
-from main import main as server_main
+from gateserver.main import main as server_main
 
 import nacl.raw as nacl
 import psycopg2
@@ -9,7 +9,7 @@ import os, sys
 
 def controller(args):
     """Manage controllers.
-    
+
     If args[1] is 'delete', deletes the given controller from the DB.
     Otherwise adds the controller to the DB, generating a new random key.
     """

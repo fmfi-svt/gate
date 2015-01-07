@@ -1,13 +1,12 @@
-#!/usr/bin/env python
 """
 Gate server runner -- https://github.com/fmfi-svt/gate/wiki/Architecture#server
 """
 
-from messagehandler import MessageHandler
+from .messagehandler import MessageHandler
 import os, sys
-from socketserver import ThreadingMixIn, UDPServer
+import socketserver as ss
 
-class ThreadingUDPServer(ThreadingMixIn, UDPServer): pass
+class ThreadingUDPServer(ss.ThreadingMixIn, ss.UDPServer): pass
 
 def main():
     MessageHandler.set_db(os.environ.get('DB_URL'))
@@ -19,4 +18,4 @@ def main():
         print('Goodbye')
 
 if __name__ == '__main__':
-    sys.exit(main())
+        sys.exit(main())
