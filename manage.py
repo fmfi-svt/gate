@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Management utility for the Gate server."""
+"""Management utility for the Gate server"""
 
 from gateserver.main import serve
 
@@ -11,16 +11,12 @@ def check_args(given, exp):
     if len(given) != len(exp):
         usage(actions, 'takes {} arguments: {}'.format(len(exp), ' '.join(exp)))
 
-def walk_actions(here, argv):
-    _, action = here
-    if len(argv) < 1 or not isinstance(action, dict): return here, argv
-    head, *tail = argv
-    if not head in action: raise ValueError('no such action: {}'.format(head))
-    sub = action[head]
-    if isinstance(sub[1], dict): # we must go deeper!
-        return walk_actions(sub, tail)
-    else: # we have a function
-        return sub, tail
+def walk_actions(action, argv):
+    here = 0
+    while here < len(argv) and isinstance(action[1], dict):
+        action = action[1][argv[here]]
+        here += 1
+    return action, argv[here:]
 
 def dispatch_action(actions, argv):
     try:
@@ -81,7 +77,7 @@ def ctrl_list(args):
 
 ################################################################################
 
-actions = ('management utility for the Gate server', {
+actions = (__doc__, {
     'serve'     : ('launch the server', lambda _: serve()),
     'controller': ('manage the controllers database.', {
         'add'   : ('add a new controller, generating a random key', ctrl_add),
