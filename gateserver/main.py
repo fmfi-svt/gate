@@ -2,13 +2,11 @@
 Gate server runner -- https://github.com/fmfi-svt/gate/wiki/Architecture#server
 """
 
-from .messagehandler import MessageHandler
+from socketserver import ThreadingUDPServer
 import os, sys
-import socketserver as ss
+from .messagehandler import MessageHandler
 
-class ThreadingUDPServer(ss.ThreadingMixIn, ss.UDPServer): pass
-
-def main():
+def serve():
     MessageHandler.set_db(os.environ.get('DB_URL'))
     bind_addr = os.environ.get('HOST', 'localhost'), int(os.environ.get('PORT'))
     server = ThreadingUDPServer(bind_addr, MessageHandler)
@@ -18,4 +16,4 @@ def main():
         print('Goodbye')
 
 if __name__ == '__main__':
-        sys.exit(main())
+    sys.exit(serve())

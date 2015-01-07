@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Management utility for the Gate server."""
 
-from gateserver.main import main as server_main
+from gateserver.main import serve
 
 import nacl.raw as nacl
 import psycopg2
@@ -17,7 +17,7 @@ def controller(args):
         mac, ip = args
     except ValueError:
         mac, ip = input('MAC addr (ID): '), input('IP addr: ')
-    with psycopg2.connect(**config.DB) as conn:
+    with psycopg2.connect(os.environ.get('DB_URL')) as conn:
         cur = conn.cursor()
         if ip == 'delete':
             cur.execute("DELETE FROM controllers WHERE id = %s", (mac,))
@@ -31,7 +31,7 @@ def controller(args):
 
 actions = {
     'controller': controller,
-    'run'       : lambda _: sys.exit(server_main())
+    'serve': lambda _: serve()
 }
 
 def load_dotenv():
@@ -49,7 +49,8 @@ def load_dotenv():
 if __name__ == '__main__':
     load_dotenv()
     try:
-        actions[sys.argv[1]](sys.argv[2:])
+        action = actions[sys.argv[1]]
     except (IndexError, KeyError):
         actions_str = '|'.join(sorted(actions.keys()))
         print('Usage: {} {} [extra arguments]'.format(sys.argv[0], actions_str))
+    sys.exit(action(sys.argv[2:]))

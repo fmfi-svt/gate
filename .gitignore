@@ -1,7 +1,5 @@
-.env
-
-*.pyc
+*.py[co]
 __pycache__/
-
-pyvenv.cfg
 venv/
+.*
+!.git*
